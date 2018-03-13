@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1089144247359",
+    "firebase_url": "https://chfmonitor.firebaseio.com",
+    "project_id": "chfmonitor",
+    "storage_bucket": "chfmonitor.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1089144247359:android:10a1d70113eb0607",
+        "android_client_info": {
+          "package_name": "com.example.kevin.chfmonitor"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1089144247359-argmqqslca62ljruhb6sovlu6frm0b7s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.kevin.chfmonitor",
+            "certificate_hash": "063874cde2b9741c18d5ca28e9736984d610c83c"
+          }
+        },
+        {
+          "client_id": "1089144247359-rc9q40e2nurb8ag06o8i4if3jdiv2pju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNI_6gsPXKl-6CvsR4F_n_jloSXhtBK-M"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1089144247359-rc9q40e2nurb8ag06o8i4if3jdiv2pju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

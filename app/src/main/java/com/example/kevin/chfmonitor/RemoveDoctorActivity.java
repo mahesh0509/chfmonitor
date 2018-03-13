@@ -1,0 +1,90 @@
+package com.example.kevin.chfmonitor;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+
+import com.parse.FindCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseQuery;
+import com.parse.ParseUser;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class RemoveDoctorActivity extends AppCompatActivity {
+
+    ListView remdoclistLV;
+    List<String> doclist;
+
+    ArrayAdapter adapter;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_remove_doctor);
+
+        Parse.initialize(this);
+        remdoclistLV= (ListView) findViewById(R.id.remdoclistID);
+        ParseQuery<ParseUser> query=ParseUser.getQuery();
+
+        doclist = new ArrayList<>();
+        adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,doclist);
+
+        query.findInBackground(new FindCallback<ParseUser>() {
+            @Override
+            public void done(List<ParseUser> objects, ParseException e) {
+                if (objects.size()>0){
+
+                    for (ParseUser user:objects){
+
+                        String username = user.getUsername();
+                        String userrole=user.getString("role");
+                        if(userrole.equals("d"))
+                            doclist.add(username);
+                        else
+                            continue;
+                    }
+
+                    remdoclistLV.setAdapter(adapter);
+                }
+            }
+        });
+
+        remdoclistLV.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            public void onItemClick(AdapterView <?> parentAdapter, View view, final int position,
+                                    long id) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(RemoveDoctorActivity.this);
+                builder.setCancelable(true);
+                builder.setTitle("Warning");
+                builder.setMessage("Delete selected Doctor?");
+                builder.setPositiveButton("Confirm",
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        });
+                builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+
+            }
+        });
+
+    }
+}
