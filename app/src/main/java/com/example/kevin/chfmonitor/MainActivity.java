@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     EditText usernameET,passwordET;
-    Button loginbtn,doctorbtn,patientbtn,notibtn;
+    Button loginbtn,doctorbtn,patientbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         doctorbtn= (Button) findViewById(R.id.iamdoctorID);
         patientbtn= (Button) findViewById(R.id.iampatientID);
         loginbtn= (Button) findViewById(R.id.loginID);
-        notibtn= (Button) findViewById(R.id.notification_id);
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -101,10 +100,4 @@ public class MainActivity extends AppCompatActivity {
             }
 
         });
-       /* notibtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ParsePush push=new ParsePush();
-            }
-        });*/
 }}
